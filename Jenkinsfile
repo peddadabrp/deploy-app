@@ -1,16 +1,12 @@
 node ('nginx-app-server1'){
    
    stage('Deploy App on nginx-app-server1') {
-       
-       checkout scm
-       
+              
        dir('/var/lib/jenkins/app') {
         sh './deploy.sh'
            
        }
-       
-       step([$class: 'WsCleanup'])
-       
+      
    }
    
 }
@@ -19,14 +15,10 @@ node ('nginx-app-server-2'){
    
    stage('Deploy App on nginx-app-server-2') {
        
-       checkout scm
-       
        dir('/var/lib/jenkins/app') {
         sh './deploy.sh'
            
        }
-       
-       step([$class: 'WsCleanup'])
 
    }
    
